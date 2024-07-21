@@ -158,10 +158,7 @@ exports.getFeed = catchAsync(async (req, res, next) => {
   const twoDaysAgo = new Date();
   twoDaysAgo.setDate(twoDaysAgo.getDate() - 4);
 
-  const features = new APIFeatures(
-    Post.find({ user: { $in: req.user.following }, createdAt: { $gte: twoDaysAgo } }),
-    req.query,
-  )
+  const features = new APIFeatures(Post.find({ user: { $in: req.user.following } }), req.query)
     .sort()
     .limitFields();
   const posts = await features.query;

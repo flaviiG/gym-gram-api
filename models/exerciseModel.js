@@ -18,6 +18,7 @@ const exerciseSchema = new mongoose.Schema({
       'Trapezius',
       'Lats',
       'Glutes',
+      'Cardio',
       'Unknown',
     ],
     default: 'Unknown',
